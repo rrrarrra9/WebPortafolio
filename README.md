@@ -37,7 +37,7 @@ La configuración detecta Chromium en `/usr/bin/chromium`, ya instalado en este 
 - `app/page.tsx`: contenido y secciones.
 - `app/globals.css`: colores, tipografía, distribución y tamaños adaptables.
 - `components/code-scene.tsx`: composición gráfica de código, sin fotografías.
-- `public/raul-ortiz-cv.pdf`: copia del CV sin fotografía, disponible para descargar por autorización de Raúl. Conserva el texto del documento original.
+- `public/raul-ortiz-cv.pdf`: copia del CV sin fotografía, disponible para descargar por autorización de Raúl. Conserva su contenido, con el correo de contacto actualizado.
 - `components/ui`: componentes de shadcn/ui, con licencia MIT incluida.
 - `components/animate-ui`: componentes de Animate UI, con su licencia MIT + Commons Clause original incluida.
 

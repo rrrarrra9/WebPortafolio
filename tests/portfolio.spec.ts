@@ -41,7 +41,7 @@ test("los enlaces de contacto y el CV apuntan a recursos reales", async ({
 }) => {
   await page.goto("/");
   await expect(
-    page.locator('a[href^="mailto:rrrarrra100@gmail.com"]'),
+    page.locator('a[href^="mailto:raulortizsanchez2007@gmail.com"]'),
   ).toBeVisible();
   await expect(
     page.getByRole("link", { name: "GitHub", exact: false }),
@@ -197,7 +197,7 @@ test("el perfil y el contacto son legibles sin JavaScript", async ({
       page.getByRole("heading", { name: "C# & ASP.NET", exact: true }),
     ).toBeVisible();
     await expect(
-      page.locator('a[href^="mailto:rrrarrra100@gmail.com"]'),
+      page.locator('a[href^="mailto:raulortizsanchez2007@gmail.com"]'),
     ).toBeVisible();
     await expect(
       page.getByRole("link", { name: "Descargar mi CV" }),
