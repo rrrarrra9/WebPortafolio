@@ -1,29 +1,55 @@
-# Portfolio · Raúl Ortiz Sánchez
+# Portafolio de Raúl Ortiz
 
-### Estudiante de DAM · Backend y aplicaciones
+Web personal clara y minimalista, creada con Next.js 16, React 19, TypeScript, Tailwind CSS 4 y componentes de shadcn/ui y Animate UI. El contenido está orientado a conseguir prácticas y oportunidades de desarrollo. La información combina el CV y las aclaraciones de Raúl: Java básico con Swing, C# con ASP.NET, Supabase, React Native y TypeScript, y experiencia de aprendizaje con Scrum.
 
-Me interesa construir aplicaciones útiles y entender cómo se conectan la interfaz, la lógica y los datos. Trabajo principalmente con Java y estoy ampliando mi formación en C# y ASP.NET Core. También tengo experiencia con React, TypeScript, APIs REST, SQL y trabajo con Scrum.
+La presentación de GitHub y los proyectos seleccionados que ya contenía este repositorio se conservan en [docs/github-profile.md](docs/github-profile.md) y [docs/github-presentation.md](docs/github-presentation.md).
 
-**Busco prácticas de desarrollo en Barcelona y alrededores**, especialmente en backend y aplicaciones.
+## Desarrollo
 
-## Proyectos destacados
+Requiere Node.js 20.9 o superior y npm. Este entorno utiliza Node.js 24.
 
-| Proyecto | Qué puedes explorar | Tecnologías |
-| --- | --- | --- |
-| [mdDocs](https://github.com/rrrarrra9/mdDocs) | Documentación Markdown, autenticación, carpetas compartidas y servidor MCP | TypeScript, Next.js, PostgreSQL, Prisma |
-| [ZooLogic](https://github.com/rrrarrra9/Zoologic-App-Java) | Prototipo de escritorio con registro, acceso y persistencia | Java, Swing, JDBC, MySQL |
-| [Blender MCP · City Generation](https://github.com/rrrarrra9/Blender-MCP-for-city-generation) | Extensión de BlenderMCP para escenas urbanas con OpenStreetMap | Python, MCP, Blender |
+```bash
+npm ci
+npm run dev -- --hostname 0.0.0.0 --port 3000
+```
 
-Los README describen el alcance actual, la instalación y las mejoras pendientes de cada proyecto. La extensión de Blender reconoce el proyecto original del que parte.
+Trabaja en el checkout existente. Cada tarea de Codex ya dispone de un entorno aislado; no es necesario crear un worktree.
 
-## En qué estoy trabajando
+## Comprobaciones
 
-- Aprender C# y ASP.NET Core construyendo un proyecto personal de agentes de IA.
-- Mejorar la documentación, la estructura y la facilidad de instalación de mis proyectos.
-- Preparar una web de portfolio para presentar mi trabajo.
+```bash
+npm run lint
+npm run build
+npm run typecheck
+npm run test:e2e
+```
 
-## Contacto
+Las pruebas de Playwright comprueban la navegación, las pestañas, el menú móvil, la formación, la ausencia de fotografías, el PDF del CV, los enlaces de contacto, el desbordamiento horizontal y la accesibilidad automática con axe en escritorio y móvil. También comprueban los filtros de conocimientos, sus detalles desplegables, la reducción de movimiento y la lectura del perfil sin JavaScript. Hay 14 pruebas. Usan el servidor de producción en el puerto 3100 y lo cierran al terminar.
 
-[GitHub](https://github.com/rrrarrra9)
+La configuración detecta Chromium en `/usr/bin/chromium`, ya instalado en este entorno. En otra máquina puedes instalar el navegador con `npx playwright install chromium` o indicar `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH`.
 
-> La web de portfolio está en desarrollo. Este repositorio presenta por ahora los proyectos seleccionados y su documentación.
+## Personalización
+
+- `lib/profile.ts`: nombre, biografía, contacto y enlaces. LinkedIn queda pendiente de la URL confirmada.
+- `lib/knowledge.ts`: conocimientos confirmados, categorías y detalles técnicos.
+- `components/knowledge.tsx`: filtros y detalles interactivos.
+- `components/motion.tsx`: integración de Animate UI y preferencias de movimiento.
+- `app/page.tsx`: contenido y secciones.
+- `app/globals.css`: colores, tipografía, distribución y tamaños adaptables.
+- `components/code-scene.tsx`: composición gráfica de código, sin fotografías.
+- `public/raul-ortiz-cv.pdf`: copia del CV sin fotografía, disponible para descargar por autorización de Raúl. Conserva el texto del documento original.
+- `components/ui`: componentes de shadcn/ui, con licencia MIT incluida.
+- `components/animate-ui`: componentes de Animate UI, con su licencia MIT + Commons Clause original incluida.
+
+La tipografía DM Sans se sirve localmente desde `@fontsource-variable/dm-sans`. La web no necesita servicios externos, claves API ni un backend para funcionar. El botón de correo abre el cliente de correo; no hay un formulario que simule enviar mensajes.
+
+## Producción
+
+```bash
+npm run build
+npm run start -- --hostname 0.0.0.0 --port 3000
+```
+
+Se puede desplegar en una plataforma compatible con Next.js. Crear los archivos y comprobar la compilación no publica la web.
+
+Para desplegar en Vercel, importa este repositorio y selecciona el framework Next.js. Usa `npm ci` para instalar y `npm run build` para compilar. La web no requiere variables de entorno. El archivo `.vercelignore` excluye dependencias locales, resultados de pruebas y archivos de entorno de las subidas mediante la CLI.
